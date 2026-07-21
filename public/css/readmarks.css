@@ -1,0 +1,42 @@
+/* Readmarks — estilos de no leído (lista + timeline). Sobrio: negrita en
+   la lista (patrón correo) y acento de borde en el timeline. Sin fondos
+   pintados, así no pelea con ningún tema. */
+
+/* Lista de tickets: fila con actividad no leída — negrita + tinte suave +
+   acento en el borde izquierdo, estilo bandeja de correo. rgba para que
+   funcione en tema claro y oscuro. */
+tr.readmarks-row-unread > td,
+tr.readmarks-row-unread > td a {
+    font-weight: 600;
+}
+tr.readmarks-row-unread > td {
+    background-color: rgba(32, 107, 196, 0.08);
+}
+tr.readmarks-row-unread > td:first-child {
+    box-shadow: inset 3px 0 0 var(--tblr-primary, #206bc4);
+}
+
+/* Timeline: entrada no leída = acento en el borde de la tarjeta. */
+.itil-timeline .timeline-item.readmarks-unread .timeline-content.card {
+    border-inline-start: 3px solid var(--tblr-primary, #206bc4);
+}
+
+/* Separador "No leído" (línea roja estilo Slack/correo). */
+.readmarks-separator {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 0.5rem 0;
+    color: #d63939;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+.readmarks-separator::before,
+.readmarks-separator::after {
+    content: '';
+    flex: 1 1 auto;
+    border-top: 1px solid #d63939;
+}
